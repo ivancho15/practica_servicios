@@ -20,6 +20,7 @@ class Servicio(models.Model):
     decripcion_servicio = models.TextField(max_length=150)
     precio_servicio = models.DecimalField(max_digits=10, decimal_places=2)
     disponible_servicio = models.BooleanField(default=True)
+    
 
     def __str__(self) -> str:
         return f"{self.nombre_servicio.capitalize()}: {self.decripcion_servicio.capitalize()}. costo: {self.precio_servicio}"
