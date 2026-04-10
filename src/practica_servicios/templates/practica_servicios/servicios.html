@@ -1,2 +1,19 @@
 {% extends 'practica_servicios/base.html' %}
 
+{% block contenido %}
+    <h1>Servicios</h1>
+    <ul>
+    {% for servicio in servicios %}
+        <li>
+            {{ servicio }} -
+            {% if servicio.disponible_servicio %}
+                ✅ Disponible 
+            {% else %}
+                ❌ No disponible
+            {% endif %}
+        </li>
+    {% empty %}
+        <p>No hay registros</p>
+    {% endfor %}
+    </ul>
+{% endblock contenido %} 

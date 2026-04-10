@@ -1,1 +1,23 @@
 {% extends 'practica_servicios/base.html' %}
+
+
+{% block contenido %}
+    <h1>Pedidos</h1>
+    <ul>
+    {% for pedido in pedidos %}
+        <li>
+            {{ pedido.pk }} - {{ pedido.cliente }} - {{ pedido.servicio.nombre_servicio }}: {{ pedido.fecha_solicitud_servicio}}
+            {% if pedido.estado_pedido == "PE" %}
+                PENDIENTE 📬
+            {% elif pedido.estado_pedido == "EP" %}
+                EN PROGRESO 🔁
+            {% elif pedido.estado_pedido == "CO" %}
+                COMPLETADO ☑️
+            {% endif %}
+        
+        </li>
+    {% empty %}
+        <p>No hay registros</p>
+    {% endfor %}
+    </ul>
+{% endblock contenido %} 

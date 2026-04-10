@@ -9,15 +9,15 @@
     <body>
         <nav style="text-align: center;">
             <h1>Servicios</h1>
-            <a href="{% url 'index' %}">Home</a>
-            <a href="{% url 'clientes' %}">Clientes</a>
-            <a href="#">Servicios</a>
-            <a href="#">Pedidos</a>
+            <a href="{% url 'practica_servicios:index' %}">🏠 Home</a>
+            <a href="{% url 'practica_servicios:clientes' %}">👥 Clientes</a>
+            <a href="{% url 'practica_servicios:servicios' %}">🛠️ Servicios</a>  
+            <a href="{% url 'practica_servicios:pedidos' %}">📦 Pedidos</a>
         </nav>
 
         <main>
             {% block contenido %}
-            {% endblock contenido %}
+            {% endblock contenido %} 
         </main>
     </body>
 
