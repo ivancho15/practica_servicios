@@ -1,1 +1,12 @@
 {% extends 'practica_servicios/base.html' %}
+
+{% block contenido %}
+    <h1>Clientes</h1>
+    <ul>
+    {%for cliente in clientes%}
+        <li>{{cliente}}</li>
+    {% empty %}
+        <p>No Hay registros </p>
+    {% endfor %}
+    </ul>
+{% endblock contenido %}
