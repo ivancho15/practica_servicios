@@ -9,4 +9,5 @@ urlpatterns = [
     path('clientes/', cliente.ClienteList.as_view(), name='cliente_list'),
     path('servicios/', servicio.ServicioList.as_view(), name='servicios'),
     path('pedidos/', pedido.PedidoList.as_view(), name='pedidos'),
+    path('clientes/detail/<int:pk>', cliente.ClienteDetail.as_view(), name='cliente_detail'),
 ]

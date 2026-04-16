@@ -12,5 +12,6 @@ class ClienteList(ListView):
     context_object_name = "clientes"
 
 class ClienteDetail(DetailView):
-    pass
+    model = Cliente
+    context_object_name = "cliente"
     

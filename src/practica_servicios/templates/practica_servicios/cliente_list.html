@@ -4,7 +4,11 @@
     <h1>Clientes</h1>
     <ul>
     {%for cliente in clientes%}
-        <li>{{cliente}}
+        <li> <p>{{ cliente }}
+            | <a href= "{%url 'practica_servicios:cliente_detail' cliente.id %}">👁️‍🗨️</a>
+            | <a href="#">✏️</a>
+            | <a href="#">🗑️</a>
+        </p>
     {% empty %}
         <p>No Hay registros </p>
     {% endfor %}
