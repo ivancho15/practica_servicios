@@ -12,7 +12,6 @@ def servicios(request):
     query = models.Servicio.objects.all()
     return render(request, "practica_servicios/servicios.html", {"servicios": query})
 
-
 def pedidos(request):
     query = models.Pedido.objects.all()
     return render(request, "practica_servicios/pedidos.html", {"pedidos": query})
