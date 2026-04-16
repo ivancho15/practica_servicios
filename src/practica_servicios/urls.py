@@ -1,11 +1,12 @@
 from django.urls import path
-from practica_servicios import views
+from django.views.generic import TemplateView
+from practica_servicios.views import  cliente, servicio, pedido
 
 app_name = 'practica_servicios'
 
 urlpatterns = [
-    path('', views.index, name='index'),
-    path('clientes/', views.clientes, name='clientes'),
-    path('servicios/', views.servicios, name='servicios'),
-    path('pedidos/', views.pedidos, name='pedidos'),
+    path('', TemplateView.as_view(template_name="practica_servicios/index.html"), name='index'),
+    path('clientes/', cliente.ClienteList.as_view(), name='cliente_list'),
+    path('servicios/', servicio.ServicioList.as_view(), name='servicios'),
+    path('pedidos/', pedido.PedidoList.as_view(), name='pedidos'),
 ]
