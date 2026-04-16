@@ -7,8 +7,10 @@ app_name = 'practica_servicios'
 urlpatterns = [
     path('', TemplateView.as_view(template_name="practica_servicios/index.html"), name='index'),
     path('clientes/', cliente.ClienteList.as_view(), name='cliente_list'),
+    path('clientes/create/', cliente.ClienteCreate.as_view(), name='cliente_create'),
     path('servicios/', servicio.ServicioList.as_view(), name='servicios'),
     path('pedidos/', pedido.PedidoList.as_view(), name='pedidos'),
-    path('clientes/detail/<int:pk>', cliente.ClienteDetail.as_view(), name='cliente_detail'),
-    path('clientes/delete/<int:pk>', cliente.ClienteDelete.as_view(), name='cliente_delete'),
+    path('clientes/detail/<int:pk>/', cliente.ClienteDetail.as_view(), name='cliente_detail'),
+    path('clientes/update/<int:pk>/', cliente.ClienteUpdate.as_view(), name='cliente_update'),
+    path('clientes/delete/<int:pk>/', cliente.ClienteDelete.as_view(), name='cliente_delete'),
 ]

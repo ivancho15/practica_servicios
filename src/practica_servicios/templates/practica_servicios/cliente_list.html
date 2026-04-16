@@ -2,15 +2,16 @@
 
 {% block contenido %}
     <h1>Clientes</h1>
+    <button><a href="{%  url 'practica_servicios:cliente_create'%}">Crear Cliente</a></button>
     <ul>
     {%for cliente in clientes%}
         <li> <p>{{ cliente }}
             | <a href= "{%url 'practica_servicios:cliente_detail' cliente.id %}">👁️‍🗨️</a>
-            | <a href="#">✏️</a>
+            | <a href="{% url 'practica_servicios:cliente_update' cliente.id %}">✏️</a>
             | <a href="{% url 'practica_servicios:cliente_delete' cliente.id %}">🗑️</a>
         </p>
     {% empty %}
         <p>No Hay registros </p>
     {% endfor %}
     </ul>
-{% endblock contenido %}
+{% endblock contenido %} 
