@@ -2,7 +2,7 @@
 
 {% block contenido %}
     
-    {% if form.instance.pk %}
+    {% if form.instance %}
         <h1>Editar Cliente</h1>
     {% else %}
         <h1>Crear Cliente</h1>
@@ -11,7 +11,13 @@
     <form method="post">
         {% csrf_token %}
         {{ form.as_p}}
-        <button type="submit">Enviar</button>
+        <button type="submit">
+            {% if form.instance.pk %}
+                Actualizar 
+            {% else %}
+                Crear
+            {% endif %}
+        </button>
     </form>
     <button>
         <a href="{% url 'practica_servicios:cliente_list' %}">Volver</a>
