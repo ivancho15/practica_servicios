@@ -11,4 +11,6 @@
     <p>Email: {{ cliente.email_cliente}}</p>
     <p>Domicilio: {{ cliente.domicilo_cliente}}</p>
 
+     <button><a href="{% url 'practica_servicios:cliente_list' %}">Volver</a></button>
+
 {% endblock contenido %}

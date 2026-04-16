@@ -3,6 +3,12 @@
 
 {% block contenido %}
 
-
+        <h1> Cliente - borrar </h1>
+        <p>¿Está seguro de borrar al cliente: "{{ cliente.nombre_cliente }} {{ cliente.apellido_cliente }}"?</p>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit">Borrar</button>
+        </form>
+        <button><a href="{% url 'practica_servicios:cliente_list' %}">Volver</a></button>
     
 {% endblock contenido %}

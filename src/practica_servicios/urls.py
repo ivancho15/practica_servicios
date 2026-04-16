@@ -10,4 +10,5 @@ urlpatterns = [
     path('servicios/', servicio.ServicioList.as_view(), name='servicios'),
     path('pedidos/', pedido.PedidoList.as_view(), name='pedidos'),
     path('clientes/detail/<int:pk>', cliente.ClienteDetail.as_view(), name='cliente_detail'),
+    path('clientes/delete/<int:pk>', cliente.ClienteDelete.as_view(), name='cliente_delete'),
 ]
