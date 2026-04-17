@@ -3,10 +3,11 @@
 
 {% block contenido %}
     <h1>Pedidos</h1>
+    <button><a href="{% url 'practica_servicios:pedido_create' %}">Crear Pedido</a></button>
     <ul>
     {% for pedido in pedidos %}
         <li>
-            {{ pedido.pk }} - {{ pedido.cliente }} - {{ pedido.servicio.nombre_servicio }}: {{ pedido.fecha_solicitud_servicio}}
+            {{ pedido.pk }} - {{ pedido.cliente }} - {{ pedido.servicio.nombre_servicio }}: {{ pedido.fecha_solicitud_servicio }}
             {% if pedido.estado_pedido == "PE" %}
                 PENDIENTE 📬
             {% elif pedido.estado_pedido == "EP" %}
@@ -14,7 +15,9 @@
             {% elif pedido.estado_pedido == "CO" %}
                 COMPLETADO ☑️
             {% endif %}
-        
+            | <a href="{% url 'practica_servicios:pedido_detail' pedido.id %}">👁️‍🗨️</a>
+            | <a href="{% url 'practica_servicios:pedido_update' pedido.id %}">✏️</a>
+            | <a href="{% url 'practica_servicios:pedido_delete' pedido.id %}">🗑️</a>
         </li>
     {% empty %}
         <p>No hay registros</p>

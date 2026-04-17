@@ -1,0 +1,10 @@
+{% extends 'practica_servicios/base.html' %}
+
+{% block contenido %}
+    <h1>Servicio - Detalle</h1>
+    <p>Nombre: {{ servicio.nombre_servicio }}</p>
+    <p>Descripción: {{ servicio.decripcion_servicio }}</p>
+    <p>Precio: {{ servicio.precio_servicio }}</p>
+    <p>Disponible: {% if servicio.disponible_servicio %}Sí{% else %}No{% endif %}</p>
+    <button><a href="{% url 'practica_servicios:servicios' %}">Volver</a></button>
+{% endblock contenido %}

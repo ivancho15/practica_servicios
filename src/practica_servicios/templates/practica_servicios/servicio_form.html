@@ -1,0 +1,22 @@
+{% extends 'practica_servicios/base.html' %}
+
+{% block contenido %}
+    {% if form.instance.pk %}
+        <h1>Editar Servicio</h1>
+    {% else %}
+        <h1>Crear Servicio</h1>
+    {% endif %}
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">
+            {% if form.instance.pk %}
+                Actualizar
+            {% else %}
+                Crear
+            {% endif %}
+        </button>
+    </form>
+    <button><a href="{% url 'practica_servicios:servicios' %}">Volver</a></button>
+{% endblock contenido %}

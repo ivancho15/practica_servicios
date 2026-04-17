@@ -2,6 +2,7 @@
 
 {% block contenido %}
     <h1>Servicios</h1>
+    <button><a href="{% url 'practica_servicios:servicio_create' %}">Crear Servicio</a></button>
     <ul>
     {% for servicio in servicios %}
         <li>
@@ -11,6 +12,9 @@
             {% else %}
                 ❌ No disponible
             {% endif %}
+            | <a href="{% url 'practica_servicios:servicio_detail' servicio.id %}">👁️‍🗨️</a>
+            | <a href="{% url 'practica_servicios:servicio_update' servicio.id %}">✏️</a>
+            | <a href="{% url 'practica_servicios:servicio_delete' servicio.id %}">🗑️</a>
         </li>
     {% empty %}
         <p>No hay registros</p>

@@ -1,0 +1,12 @@
+{% extends 'practica_servicios/base.html' %}
+
+{% block contenido %}
+    <h1>Pedido - Detalle</h1>
+    <p>Cliente: {{ pedido.cliente }}</p>
+    <p>Servicio: {{ pedido.servicio }}</p>
+    <p>Descripción: {{ pedido.descripcion_pedido }}</p>
+    <p>Fecha de solicitud: {{ pedido.fecha_solicitud_servicio }}</p>
+    <p>Fecha de finalización: {{ pedido.fecha_finalizacion_Servicio }}</p>
+    <p>Estado: {{ pedido.get_estado_pedido_display }}</p>
+    <button><a href="{% url 'practica_servicios:pedidos' %}">Volver</a></button>
+{% endblock contenido %}

@@ -1,0 +1,11 @@
+{% extends 'practica_servicios/base.html' %}
+
+{% block contenido %}
+    <h1>Servicio - borrar</h1>
+    <p>¿Está seguro de borrar el servicio: "{{ servicio.nombre_servicio }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Borrar</button>
+    </form>
+    <button><a href="{% url 'practica_servicios:servicios' %}">Volver</a></button>
+{% endblock contenido %}
