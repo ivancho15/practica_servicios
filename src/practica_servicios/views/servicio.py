@@ -2,6 +2,9 @@ from practica_servicios.models import Servicio
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from practica_servicios.forms import ServicioForm
+from django.db.models import ProtectedError
+from django.shortcuts import redirect
+from django.contrib import messages
 
 
 # def servicios(request):
@@ -40,3 +43,10 @@ class ServicioDelete(DeleteView):
     context_object_name = 'servicio'
     template_name = 'practica_servicios/servicio_confirm_delete.html'
     success_url = reverse_lazy('practica_servicios:servicios')
+
+    def post(self, request, *args, **kwargs):
+        try:
+            return self.delete(request, *args, **kwargs)
+        except ProtectedError:
+            messages.error(request, "No se puede eliminar este Servicio porque tiene pedidos asociados. Elimine primero los pedidos.")
+            return redirect('practica_servicios:servicios')
